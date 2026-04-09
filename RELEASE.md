@@ -5,7 +5,7 @@
 * do **publish** task
 * go to *build/repos/releases*
 * remove the "maven-metadata.xml" (and all files in the same directory)
-* zip the **dev** dir. Save it with a name like *jayo-scheduler-0.1.0-alpha1.zip*.
+* zip the **dev** dir. Save it with a name like *jayo-scheduler-0.1.0-beta9.zip*.
 * upload manually on https://central.sonatype.com/publishing (jayo account)
   * do **Publish Component**
   * Deployment name → use release name *jayo-scheduler-X.Y.Z*, use the same name as the zip.

@@ -107,34 +107,37 @@ publishing {
     }
 
 
-    publications.withType<MavenPublication> {
-        from(components["java"])
+    publications {
+        create<MavenPublication>("Maven") {
+            from(components["java"])
+            artifact(sourcesJar)
+        }
 
-        artifact(sourcesJar)
+        withType<MavenPublication> {
+            pom {
+                name.set(project.name)
+                description.set("Jayo Scheduler is a Java port of the Result<T> type from the Kotlin stdlib")
+                url.set("https://github.com/jayo-projects/jayo-scheduler")
 
-        pom {
-            name.set(project.name)
-            description.set("Jayo Scheduler is a Java port of the Result<T> type from the Kotlin stdlib")
-            url.set("https://github.com/jayo-projects/jayo-scheduler")
-
-            licenses {
-                license {
-                    name.set("Apache-2.0")
-                    url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                licenses {
+                    license {
+                        name.set("Apache-2.0")
+                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
                 }
-            }
 
-            developers {
-                developer {
-                    name.set("pull-vert")
-                    url.set("https://github.com/pull-vert")
+                developers {
+                    developer {
+                        name.set("pull-vert")
+                        url.set("https://github.com/pull-vert")
+                    }
                 }
-            }
 
-            scm {
-                connection.set("scm:git@github.com/jayo-projects/jayo-scheduler")
-                developerConnection.set("scm:git@github.com/jayo-projects/jayo-scheduler.git")
-                url.set("https://github.com/jayo-projects/jayo-scheduler.git")
+                scm {
+                    connection.set("scm:git@github.com/jayo-projects/jayo-scheduler")
+                    developerConnection.set("scm:git@github.com/jayo-projects/jayo-scheduler.git")
+                    url.set("https://github.com/jayo-projects/jayo-scheduler.git")
+                }
             }
         }
     }
